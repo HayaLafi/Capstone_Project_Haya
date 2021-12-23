@@ -12,16 +12,20 @@ public class Employee {
     private int mobile;
     private String password;
 
+    @ManyToOne
+    @JoinColumn(name= "holi_id" ,referencedColumnName = "HolidayId")
+    private Holiday holiday;
 
     public Employee() {
     }
 
-    public Employee(int id, String name, String email, String password, int mobile) {
+    public Employee(int id, String name, String email, int mobile, String password, Holiday holiday) {
         this.id = id;
         this.name = name;
         this.email = email;
-        this.password = password;
         this.mobile = mobile;
+        this.password = password;
+        this.holiday = holiday;
     }
 
     public int getId() {
@@ -62,6 +66,14 @@ public class Employee {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Holiday getHoliday() {
+        return holiday;
+    }
+
+    public void setHoliday(Holiday holiday) {
+        this.holiday = holiday;
     }
 
     @Override
