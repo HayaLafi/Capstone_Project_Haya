@@ -8,24 +8,23 @@ public class Employee {
     @Id
     private int id;
     private String name;
-    private String email ;
+    private String email;
     private int mobile;
     private String password;
 
-    @ManyToOne
-    @JoinColumn(name= "holi_id" ,referencedColumnName = "HolidayId")
-    private Holiday holiday;
+//   @ManyToOne
+//   @JoinColumn(name= "holi_id" ,referencedColumnName = "HolidayId")
+//    private Holiday holiday;
 
     public Employee() {
     }
 
-    public Employee(int id, String name, String email, int mobile, String password, Holiday holiday) {
+    public Employee(int id, String name, String email, int mobile, String password) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.mobile = mobile;
         this.password = password;
-        this.holiday = holiday;
     }
 
     public int getId() {
@@ -68,23 +67,14 @@ public class Employee {
         this.password = password;
     }
 
-    public Holiday getHoliday() {
-        return holiday;
-    }
-
-    public void setHoliday(Holiday holiday) {
-        this.holiday = holiday;
-    }
-
     @Override
     public String toString() {
-        return "Employee" +
-                "{" +
+        return "Employee{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
-                ", mobile='" + mobile + '\'' +
-                ", password=" + password +
+                ", mobile=" + mobile +
+                ", password='" + password + '\'' +
                 '}';
     }
 }

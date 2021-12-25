@@ -9,6 +9,7 @@ import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Entity
 @Table
 public class Holiday {
@@ -16,21 +17,20 @@ public class Holiday {
     private int HolidayId;
     private String date;
     private String title;
-    private String describe;
+    private String description;
 
-    @OneToMany(mappedBy = "holiday")
-    @JsonIgnore
-    private List<Employee> items = new ArrayList<>();
+//  @OneToMany(mappedBy = "holiday")
+//   @JsonIgnore
+//   private List<Employee> items = new ArrayList<>();
 
     public Holiday() {
     }
 
-    public Holiday(int holidayId, String date, String title, String describe, List<Employee> items) {
+    public Holiday(int holidayId, String date, String title, String description) {
         HolidayId = holidayId;
         this.date = date;
         this.title = title;
-        this.describe = describe;
-        this.items = items;
+        this.description = description;
     }
 
     public int getHolidayId() {
@@ -58,19 +58,11 @@ public class Holiday {
     }
 
     public String getDescribe() {
-        return describe;
+        return description;
     }
 
     public void setDescribe(String describe) {
-        this.describe = describe;
-    }
-
-    public List<Employee> getItems() {
-        return items;
-    }
-
-    public void setItems(List<Employee> items) {
-        this.items = items;
+        this.description = description;
     }
 
     @Override
@@ -79,8 +71,9 @@ public class Holiday {
                 "HolidayId=" + HolidayId +
                 ", date='" + date + '\'' +
                 ", title='" + title + '\'' +
-                ", describe='" + describe + '\'' +
-                ", items=" + items +
+                ", description='" + description + '\'' +
                 '}';
     }
 }
+
+

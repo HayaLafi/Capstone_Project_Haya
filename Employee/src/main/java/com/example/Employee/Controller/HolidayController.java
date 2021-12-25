@@ -1,6 +1,4 @@
 package com.example.Employee.Controller;
-
-import com.example.Employee.Model.Entities.Employee;
 import com.example.Employee.Model.Entities.Holiday;
 import com.example.Employee.Model.Service.HolidayService;
 
@@ -10,7 +8,7 @@ import com.example.Employee.Model.Service.HolidayService;
         import java.util.List;
 
 @RestController
-@RequestMapping(path = "api/holiday")
+@RequestMapping(path = "holiday")
 public class HolidayController {
     private HolidayService holidayService;
     @Autowired
