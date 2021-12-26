@@ -1,23 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios"
-export default function Holiday() {
 
-  const[id ,setid]= useState("")
+import { Outlet} from "react-router-dom";
+export default function Holidays() {
+  const[HolidayId ,setHolidayId]= useState("")
   const[date ,setdate]= useState("")
   const[tittle,settittle]= useState("")
   const[description ,setdescription]= useState("")
   
 
 
-  const [myHoliday, setMyHoliday] = useState({id:"",date:"",tittle:"" ,description:""})
+  const [myHoliday, setMyHoliday] = useState({HolidayId:"",date:"",tittle:"" ,description:""})
   let nuwHoliday = {
-      HolidayId:id ,
+      HolidayId:HolidayId ,
     date :date ,
 title:tittle,
 description :description
   }
   function handelid(event){
-    setid((event.target.value));
+    setHolidayId((event.target.value));
   }
 
   function handeldate(event){
@@ -32,10 +33,6 @@ description :description
   
 
 
-
- 
-
-
  useEffect(()=>{
    axios.get("api/holiday")
     .then(response=>{
@@ -45,7 +42,7 @@ description :description
    return()=>{}
  },[])
  
-function handleClick(){
+function handleClickk(){
   axios({
     method:'post',
     url:'api/holiday/add',
@@ -61,7 +58,7 @@ function handleClick(){
 
   return (
     <div>
-        <button onClick={handleClick} >Holiday </button>
+        <button onClick={handleClickk} >Holiday </button>
 
 
       <form className='Patient' >
@@ -102,7 +99,7 @@ function handleClick(){
            
 
 <br></br>
-<button onClick={handleClick} > Submit </button>
+<button onClick={handleClickk} > Submit </button>
 
 
 
@@ -124,4 +121,16 @@ function handleClick(){
 
     </div>
   )
-}
+    // return (
+    //   <div style={{ display: "flex" }}>
+    //     <nav
+    //       style={{
+    //         borderRight: "solid 1px",
+    //         padding: "1rem"
+    //       }}
+    //     >
+    //     </nav>
+    //     <Outlet />
+    //   </div>
+    // );
+  }

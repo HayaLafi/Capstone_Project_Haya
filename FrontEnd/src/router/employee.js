@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios"
-export default function App() {
+export default function Employee() {
 
   const[id ,setid]= useState("")
   const[name ,setname]= useState("")
@@ -82,7 +82,7 @@ function handleClick(){
           <dr />
           <input
             type="text"
-            
+
             placeholder="name"
             name="name"
            onChange= {handelname}         />
