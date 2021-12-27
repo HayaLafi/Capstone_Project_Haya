@@ -64,13 +64,12 @@ function handleClick(){
 
   return (
     <div>
-        <button onClick={handleClick} >Employee Log in </button>
-
+        
 
       <form className='Patient' >
         <div class="log">
           <hr />
-          <label > Id Employee :</label>
+          <label > ID Employee:  </label>
           <dr />
           <input
             type="text"
@@ -78,16 +77,15 @@ function handleClick(){
             name="Id"
            onChange= {handelid}         />
            <br></br>
- <label > Name :</label>
+ <label > Name Employee:</label>
           <dr />
           <input
             type="text"
-
             placeholder="name"
             name="name"
            onChange= {handelname}         />
            <br></br>
- <label > Email :</label>
+ <label > Email Employee:</label>
           <dr />
           <input
             type="text"
@@ -95,7 +93,7 @@ function handleClick(){
             name="email"
            onChange= {handelemail}         />
            <br></br>
-            <label > mobile :</label>
+            <label > mobile Employee:</label>
           <dr />
           <input
             type="text"
@@ -114,13 +112,7 @@ function handleClick(){
 <br></br>
 <button onClick={handleClick} > Login </button>
 
-
-
-
 </div>
-
-
-
 </form>
 
 

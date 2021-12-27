@@ -15,11 +15,11 @@ function App() {
     <div>
       <h1 id="HeaderName"> </h1>
       <nav id="navPage">
-      {/* <Link to="/homepage">Homepage </Link> */}
-        <Link to="/Employee">Employee </Link>
-        <Link to="/Holidays">Holiday</Link>
-        <Link to="/permissions">permission </Link>
-        <Link to="/services">service </Link>
+      {/* <Link to="/homepage">Homepage </Link> */} |{"    "}
+        <Link to="/Employee">Employee </Link>  |{"      "}
+        <Link to="/Holidays">Holiday</Link>  |{"    "}
+        <Link to="/permissions">permission </Link> |{"    "}
+        <Link to="/services">service </Link>  |{"    "}
       </nav>
       <Outlet />
     </div>

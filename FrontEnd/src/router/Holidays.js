@@ -57,46 +57,47 @@ function handleClickk(){
 // })}
 
   return (
-    <div>
-        <button onClick={handleClickk} >Holiday </button>
+<div>
+        
 
 
-      <form className='Patient' >
-        <div class="log">
-          <hr />
-          <label > Id Holiday :</label>
-          <dr />
-          <input
-            type="text"
-            placeholder="Id"
-            name="Id"
-           onChange= {handelid}         />
-           <br></br>
- <label > tittle :</label>
-          <dr />
-          <input
-            type="text"
+<form className='Patient' >
+<div class="log">
+<hr />
+<label > ID Holiday:  </label>
+<dr />
+<input
+type="text"
+placeholder="Id"
+name="Id"
+onChange= {handelid}         />
+<br></br>
+ <label >    Tittle:  </label>
+<dr />
+<input
+type="text"
             
-            placeholder="name"
-            name="name"
-           onChange= {handeltittle}         />
-           <br></br>
+placeholder="name"
+name="name"
+onChange= {handeltittle}         />
+<br></br>
  <label > date :</label>
-          <dr />
-          <input
-            type="text"
-            placeholder="Date"
-            name="date"
-           onChange= {handeldate}         />
-           <br></br>
-            <label > description :</label>
-          <dr />
-          <input
-            type="text"
-            placeholder="description"
-            name="Id"
-           onChange= {handeldescription}         />
-           
+<dr />
+<input
+type="text"
+placeholder="Date"
+name="date"
+onChange= {handeldate}         />
+<br></br>
+ <label > Description holiday: </label>
+  <dr />
+  <input
+ type="text"
+placeholder="description"
+name="Id"
+onChange= {handeldescription}         />
+<textarea placeholder="description " onChange={handeldescription} >
+</textarea>
 
 <br></br>
 <button onClick={handleClickk} > Submit </button>
@@ -105,9 +106,6 @@ function handleClickk(){
 
 
 </div>
-
-
-
 </form>
 
 

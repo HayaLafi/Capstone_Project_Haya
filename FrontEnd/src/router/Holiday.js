@@ -30,12 +30,6 @@ description :description
     setdescription((event.target.value));
   }
   
-
-
-
- 
-
-
  useEffect(()=>{
    axios.get("api/holiday")
     .then(response=>{
@@ -61,7 +55,7 @@ function handleClick(){
 
   return (
     <div>
-        <button onClick={handleClick} >Holiday </button>
+        
 
 
       <form className='Patient' >
@@ -119,9 +113,9 @@ function handleClick(){
       <button onClick={handle1}>delete</button> */}
     
 
-      <br/>
+    <br/>
      
 
-    </div>
-  )
+     </div>
+ )
 }
