@@ -15,6 +15,9 @@ import Employee from "./router/employee";
  import Service from './router/service';
  import Services from './router/services';
 
+ import File from './router/file';
+ import Files from './router/files';
+
 import "./index.css";
 
 
@@ -28,12 +31,19 @@ ReactDOM.render(
       <Route path="/" element={<App />}>
         <Route path="/employee" element={<Employee />}>
          </Route>
+
         <Route path="Holidays" element={<Holidays />}>
           <Route path=":id" element={<Holiday />} />
         </Route>
+
         <Route path="/permissions" element={<Permissions />}>
           <Route path=":id" element={<Permission />} />
           </Route>
+
+          <Route path="/files" element={<Files />}>
+          <Route path=":id" element={<File />} />
+          </Route>
+
           <Route path="/services" element={<Services />}>
  <Route path=":id" element={<Service />} /> 
      

@@ -3,6 +3,7 @@ import axios from "axios"
 
 import { Outlet} from "react-router-dom";
 export default function Holidays() {
+  
   const[HolidayId ,setHolidayId]= useState("")
   const[date ,setdate]= useState("")
   const[tittle,settittle]= useState("")
@@ -23,31 +24,31 @@ description :description
 
   function handeldate(event){
     setdate((event.target.value));
-  }
-  function handeltittle(event){
-    settittle((event.target.value));
-  }
-  function handeldescription(event){
-    setdescription((event.target.value));
-  }
-  
+}
+function handeltittle(event){
+  settittle((event.target.value));
+}
+function handeldescription(event){
+  setdescription((event.target.value));
+}
 
 
- useEffect(()=>{
-   axios.get("api/holiday")
-    .then(response=>{
-      console.log(response.data)
-      setMyHoliday(response.data[0])
-   })
-   return()=>{}
- },[])
- 
+
+useEffect(()=>{
+ axios.get("api/holiday")
+  .then(response=>{
+    console.log(response.data)
+    setMyHoliday(response.data[0])
+ })
+ return()=>{}
+},[])
+
 function handleClickk(){
-  axios({
-    method:'post',
-    url:'api/holiday/add',
-    data:nuwHoliday
-  });
+axios({
+  method:'post',
+  url:'api/holiday/add',
+  data:nuwHoliday
+});
 }
 
 // function handle1(){
@@ -56,9 +57,9 @@ function handleClickk(){
 //   url: "/api/employee/delete/11"
 // })}
 
-  return (
+return (
 <div>
-        
+      
 
 
 <form className='Patient' >
@@ -72,16 +73,16 @@ placeholder="Id"
 name="Id"
 onChange= {handelid}         />
 <br></br>
- <label >    Tittle:  </label>
+<label >    Tittle:  </label>
 <dr />
 <input
 type="text"
-            
+          
 placeholder="name"
 name="name"
 onChange= {handeltittle}         />
 <br></br>
- <label > date :</label>
+<label > date :</label>
 <dr />
 <input
 type="text"
@@ -89,13 +90,15 @@ placeholder="Date"
 name="date"
 onChange= {handeldate}         />
 <br></br>
- <label > Description holiday: </label>
-  <dr />
-  <input
- type="text"
+<label > Description holiday: </label>
+<dr />
+<input
+type="text"
 placeholder="description"
 name="Id"
 onChange= {handeldescription}         />
+
+<br></br>
 <textarea placeholder="description " onChange={handeldescription} >
 </textarea>
 
@@ -108,27 +111,24 @@ onChange= {handeldescription}         />
 </div>
 </form>
 
+{/* <h2>my employee details are:  {JSON.stringify(myEmployee)}</h2>
+<button onClick={handleClick}>Post</button>
+<button onClick={handle1}>delete</button> */}
+  
 
-      {/* <h2>my employee details are:  {JSON.stringify(myEmployee)}</h2>
-      <button onClick={handleClick}>Post</button>
-      <button onClick={handle1}>delete</button> */}
-    
-
-      <br/>
-     
-
-    </div>
-  )
-    // return (
-    //   <div style={{ display: "flex" }}>
-    //     <nav
-    //       style={{
-    //         borderRight: "solid 1px",
-    //         padding: "1rem"
-    //       }}
-    //     >
-    //     </nav>
-    //     <Outlet />
-    //   </div>
-    // );
-  }
+<br/>
+</div>
+)
+  // return (
+  //   <div style={{ display: "flex" }}>
+  //     <nav
+  //       style={{
+  //         borderRight: "solid 1px",
+  //         padding: "1rem"
+  //       }}
+  //     >
+  //     </nav>
+  //     <Outlet />
+  //   </div>
+  // );
+}

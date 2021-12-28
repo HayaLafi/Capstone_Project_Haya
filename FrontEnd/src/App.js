@@ -19,6 +19,7 @@ function App() {
         <Link to="/Employee">Employee </Link>  |{"      "}
         <Link to="/Holidays">Holiday</Link>  |{"    "}
         <Link to="/permissions">permission </Link> |{"    "}
+        <Link to="/files">jjjjj </Link> |{"    "}
         <Link to="/services">service </Link>  |{"    "}
       </nav>
       <Outlet />
