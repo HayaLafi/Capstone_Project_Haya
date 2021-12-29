@@ -26,7 +26,7 @@ export default class Files extends Component {
     render() {
         return (
         <div>
-            <h3>Get</h3>
+            <h3>  </h3>
             {this.state.holy.map((item => (
                 <div key={item.holidayId}>
                  <h2>{item.date}</h2>

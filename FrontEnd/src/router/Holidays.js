@@ -43,7 +43,8 @@ useEffect(()=>{
  return()=>{}
 },[])
 
-function handleClickk(){
+function handleClickk(event){
+event.preventDefault();
 axios({
   method:'post',
   url:'api/holiday/add',
@@ -59,13 +60,13 @@ axios({
 
 return (
 <div>
-      
-
-
+  
 <form className='Patient' >
 <div class="log">
 <hr />
-<label > ID Holiday:  </label>
+<h1>       الاجازات          </h1>
+<br></br>
+<label > عدد أيام الاجازة  </label>
 <dr />
 <input
 type="text"
@@ -73,8 +74,9 @@ placeholder="Id"
 name="Id"
 onChange= {handelid}         />
 <br></br>
-<label >    Tittle:  </label>
-<dr />
+<br></br>
+<label >    نوع الاجازة  </label> 
+ <dr /> 
 <input
 type="text"
           
@@ -82,7 +84,25 @@ placeholder="name"
 name="name"
 onChange= {handeltittle}         />
 <br></br>
-<label > date :</label>
+<br></br>
+       {/* // <input type="radio" onChange={handleCategory} name="مرضيه" />  مرضيه  <br />
+       // <input type="radio" onChange={handleCategory} name="مرضيه" /> وفاه<br />
+       // <input type="radio" onChange={handleCategory} name="زواج" /> زواج <br /> */}
+       {/* // <input type="radio" onChange={handleCategory} name="سنويه" /> سنويه */}
+        
+
+
+<label > تاريخ بداية الاجازة </label>
+<dr />
+<input
+type="text"
+placeholder="Date"
+name="date"
+onChange= {handeldate}         />
+
+<br></br>
+<br></br>
+<label > تاريخ نهايتها </label>
 <dr />
 <input
 type="text"
@@ -90,20 +110,21 @@ placeholder="Date"
 name="date"
 onChange= {handeldate}         />
 <br></br>
-<label > Description holiday: </label>
-<dr />
-<input
-type="text"
-placeholder="description"
-name="Id"
-onChange= {handeldescription}         />
+<br></br>
 
+<label > اسباب الاجازة  </label>
+<dr />
+
+<br></br>
 <br></br>
 <textarea placeholder="description " onChange={handeldescription} >
 </textarea>
-
 <br></br>
-<button onClick={handleClickk} > Submit </button>
+<br></br>
+<button onClick={handleClickk} > Submit </button> 
+
+
+{"                                                                                                                                                           "}
 
 
 

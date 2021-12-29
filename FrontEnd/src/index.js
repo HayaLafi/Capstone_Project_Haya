@@ -4,6 +4,9 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import App from './App';
+
+import Homepage from "./router/Homepage"; 
+
 import Employee from "./router/employee";
 
  import Holidays from "./router/Holidays";
@@ -32,22 +35,28 @@ ReactDOM.render(
         <Route path="/employee" element={<Employee />}>
          </Route>
 
-        <Route path="Holidays" element={<Holidays />}>
-          <Route path=":id" element={<Holiday />} />
-        </Route>
+          <Route path="/" element={<App />}>
+        <Route path="/homepage" element={<homepage />}>
+         </Route>
+         </Route>  
 
-        <Route path="/permissions" element={<Permissions />}>
-          <Route path=":id" element={<Permission />} />
-          </Route>
 
-          <Route path="/files" element={<Files />}>
-          <Route path=":id" element={<File />} />
-          </Route>
+        <Route path="Holidays" element={<Holidays />}/>
+          {/* <Route path=":id" element={<Holiday />} />
+        </Route> */}
 
-          <Route path="/services" element={<Services />}>
- <Route path=":id" element={<Service />} /> 
+        <Route path="/permissions" element={<Permissions />}/>
+          {/* <Route path=":id" element={<Permission />} />
+          </Route> */}
+
+          <Route path="/files" element={<Files />}/>
+          {/* <Route path=":id" element={<File />} />
+          </Route> */}
+
+          <Route path="/services" element={<Services />}/>
+ {/* <Route path=":id" element={<Service />} /> 
      
- </Route>
+ </Route> */}
  </Route> 
   </Routes>
 </BrowserRouter>,

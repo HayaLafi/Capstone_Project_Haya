@@ -11,8 +11,8 @@ export default function Holiday() {
 
   const [myHoliday, setMyHoliday] = useState({id:"",date:"",tittle:"" ,description:""})
   let nuwHoliday = {
-      HolidayId:id ,
-    date :date ,
+HolidayId:id ,
+date :date ,
 title:tittle,
 description :description
   }
@@ -61,6 +61,8 @@ function handleClick(){
       <form className='Patient' >
         <div class="log">
           <hr />
+<br></br>
+          <h>   طلب    </h>
           <label > Id Holiday :</label>
           <dr />
           <input
@@ -68,12 +70,12 @@ function handleClick(){
             placeholder="Id"
             name="Id"
            onChange= {handelid}         />
+           <br></br> 
            <br></br>
  <label > tittle :</label>
           <dr />
           <input
             type="text"
-            
             placeholder="name"
             name="name"
            onChange= {handeltittle}         />
@@ -86,6 +88,7 @@ function handleClick(){
             name="date"
            onChange= {handeldate}         />
            <br></br>
+           <br></br>
             <label > description :</label>
           <dr />
           <input
@@ -95,6 +98,7 @@ function handleClick(){
            onChange= {handeldescription}         />
            
 
+<br></br>
 <br></br>
 <button onClick={handleClick} > Submit </button>
 

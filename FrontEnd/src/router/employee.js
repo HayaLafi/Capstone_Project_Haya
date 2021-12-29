@@ -70,7 +70,8 @@ export default function Employee() {
         
         <div>
           <hr />
-          <label > ID Employee:  </label>
+          <h1> : دخول الموظفين   </h1>
+          <label >  الرقم الوظيفي  </label>
           <dr />
           <input
             type="text"
@@ -78,7 +79,8 @@ export default function Employee() {
             name="Id"
             onChange={handelid} />
           <br></br>
-          <label > Name Employee:</label>
+          <br></br>
+          <label > اسم الموظف </label>
           <dr />
           <input
             type="text"
@@ -86,7 +88,8 @@ export default function Employee() {
             name="name"
             onChange={handelname} />
           <br></br>
-          <label > Email Employee:</label>
+          <br></br>
+          <label >   ايميل الموظف </label>
           <dr />
           <input
             type="text"
@@ -94,7 +97,8 @@ export default function Employee() {
             name="email"
             onChange={handelemail} />
           <br></br>
-          <label > mobile Employee:</label>
+          <br></br>
+          <label > رقم الموظف</label>
           <dr />
           <input
             type="text"
@@ -102,7 +106,9 @@ export default function Employee() {
             name="Id"
             onChange={handelmobile} />
           <br></br>
-          <label > password :</label>
+          <br></br>
+          <label > كلمة المرور 
+ </label> <br></br>
           <dr />
           <input
             type="text"
@@ -110,6 +116,7 @@ export default function Employee() {
             name="password"
             onChange={handelpassword} />
 
+          <br></br>
           <br></br>
           <button onClick={handleClick} > Login </button>
  
