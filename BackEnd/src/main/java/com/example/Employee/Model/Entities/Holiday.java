@@ -2,10 +2,7 @@ package com.example.Employee.Model.Entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,23 +11,27 @@ import java.util.List;
 @Table
 public class Holiday {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int holidayId;
     private String date;
     private String title;
     private String description;
 
-  @OneToMany(mappedBy = "holiday")
-   @JsonIgnore
-   private List<Employee> items = new ArrayList<>();
 
-    public Holiday() {
-    }
 
-    public Holiday(int holidayId, String date, String title, String description) {
-        holidayId = holidayId;
+    @ManyToOne
+    @JoinColumn(name= "employee_id" ,referencedColumnName = "id")
+    private Employee employee;
+
+    public Holiday(int holidayId, String date, String title, String description, Employee employee) {
+        this.holidayId = holidayId;
         this.date = date;
         this.title = title;
         this.description = description;
+        this.employee = employee;
+    }
+
+    public Holiday() {
     }
 
     public int getHolidayId() {
@@ -38,7 +39,7 @@ public class Holiday {
     }
 
     public void setHolidayId(int holidayId) {
-        holidayId = holidayId;
+        this.holidayId = holidayId;
     }
 
     public String getDate() {
@@ -65,24 +66,11 @@ public class Holiday {
         this.description = description;
     }
 
-    public List<Employee> getItems() {
-        return items;
+    public Employee getEmployee() {
+        return employee;
     }
 
-    public void setItems(List<Employee> items) {
-        this.items = items;
-    }
-
-    @Override
-    public String toString() {
-        return "Holiday{" +
-                "holidayId=" + holidayId +
-                ", date='" + date + '\'' +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", items=" + items +
-                '}';
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 }
-
-

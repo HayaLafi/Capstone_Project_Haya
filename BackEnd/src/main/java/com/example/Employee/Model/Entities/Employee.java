@@ -1,32 +1,62 @@
 package com.example.Employee.Model.Entities;
-        import org.aspectj.weaver.ast.Or;
-        import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.aspectj.weaver.ast.Or;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table
 public class Employee {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String email;
     private int mobile;
     private String password;
 
-   @ManyToOne
-   @JoinColumn(name= "holiday_id" ,referencedColumnName = "HolidayId")
-    private Holiday holiday;
+
+    @OneToMany(mappedBy = "employee")
+    @JsonIgnore
+    private List<Holiday> items = new ArrayList<>();
+
+
+
+   // @ManyToMany
+  //  @JoinTable(
+      //      name = "employee_services",
+      //      joinColumns = @JoinColumn(name = "employee_id"),
+       //     inverseJoinColumns = @JoinColumn(name = "services_id"))
+   // Set<Services> empolyeeServices;
+
+    @ManyToMany
+    @JoinTable(
+            name = "employee_permission",
+            joinColumns = @JoinColumn(name = "employee_id"),
+            inverseJoinColumns = @JoinColumn(name = "permission_id"))
+    Set<Permission> empolyeePermission;
 
     public Employee() {
     }
 
-    public Employee(int id, String name, String email, int mobile, String password, Holiday holiday) {
+    public Employee(int id, String name, String email, int mobile, String password) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.mobile = mobile;
         this.password = password;
-        this.holiday = holiday;
     }
+
+
+   // public void setEmpolyeeServices(Set<Services> empolyeeServices) {
+    //    this.empolyeeServices = empolyeeServices;
+ //   }
+
+   // public Set<Services> getEmpolyeeServices() {
+      //  return empolyeeServices;
+    //}
 
     public int getId() {
         return id;
@@ -68,12 +98,12 @@ public class Employee {
         this.password = password;
     }
 
-    public Holiday getHoliday() {
-        return holiday;
+    public List<Holiday> getItems() {
+        return items;
     }
 
-    public void setHoliday(Holiday holiday) {
-        this.holiday = holiday;
+    public void setItems(List<Holiday> items) {
+        this.items = items;
     }
 
     @Override
@@ -84,6 +114,7 @@ public class Employee {
                 ", email='" + email + '\'' +
                 ", mobile=" + mobile +
                 ", password='" + password + '\'' +
+                ", holiday=" + getItems().listIterator() +
                 '}';
     }
 }

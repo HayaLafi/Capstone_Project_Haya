@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 @RestController
 @RequestMapping(path = "api/employee")
-public class EmployeeController<employeeService> {
+public class EmployeeController {
 
     private EmployeeService employeeService;
 
