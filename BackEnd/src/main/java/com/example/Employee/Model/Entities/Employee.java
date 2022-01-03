@@ -1,10 +1,10 @@
 package com.example.Employee.Model.Entities;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.aspectj.weaver.ast.Or;
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+        import com.fasterxml.jackson.annotation.JsonIgnore;
+        import org.aspectj.weaver.ast.Or;
+        import javax.persistence.*;
+        import java.util.ArrayList;
+        import java.util.List;
+        import java.util.Set;
 
 @Entity
 @Table
@@ -24,12 +24,12 @@ public class Employee {
 
 
 
-   // @ManyToMany
-  //  @JoinTable(
-      //      name = "employee_services",
-      //      joinColumns = @JoinColumn(name = "employee_id"),
-       //     inverseJoinColumns = @JoinColumn(name = "services_id"))
-   // Set<Services> empolyeeServices;
+    @ManyToMany
+    @JoinTable(
+            name = "employee_services",
+            joinColumns = @JoinColumn(name = "employee_id"),
+            inverseJoinColumns = @JoinColumn(name = "services_id"))
+    Set<Services> empolyeeServices;
 
     @ManyToMany
     @JoinTable(
@@ -50,13 +50,13 @@ public class Employee {
     }
 
 
-   // public void setEmpolyeeServices(Set<Services> empolyeeServices) {
-    //    this.empolyeeServices = empolyeeServices;
- //   }
+    public void setEmpolyeeServices(Set<Services> empolyeeServices) {
+        this.empolyeeServices = empolyeeServices;
+    }
 
-   // public Set<Services> getEmpolyeeServices() {
-      //  return empolyeeServices;
-    //}
+    public Set<Services> getEmpolyeeServices() {
+        return empolyeeServices;
+    }
 
     public int getId() {
         return id;
