@@ -8,17 +8,15 @@ export default function Holidays() {
   const[date ,setdate]= useState("")
   const[tittle,settittle]= useState("")
   const[description ,setdescription]= useState("")
-  const [employees, setEmployees] = useState("")
-  const [employee, setEmployee] = useState("")
-  const [sel, setSel] = useState("")
+  
+
 
   const [myHoliday, setMyHoliday] = useState({HolidayId:"",date:"",tittle:"" ,description:""})
   let nuwHoliday = {
       HolidayId:HolidayId ,
     date :date ,
 title:tittle,
-description :description,
-employee : employee,
+description :description
   }
   function handelid(event){
     setHolidayId((event.target.value));
@@ -34,14 +32,7 @@ function handeldescription(event){
   setdescription((event.target.value));
 }
 
-useEffect(() => {
-  axios.get("api/employee")
-      .then(response => {
-          console.log(response.data)
-          setEmployees(Array.from(response.data))
-      })
-  return () => { }
-}, [])
+
 
 useEffect(()=>{
  axios.get("api/holiday")
@@ -51,12 +42,6 @@ useEffect(()=>{
  })
  return()=>{}
 },[])
-
-function handleSelect(event){
-  let obj = JSON.parse(event.target.value); 
-  setEmployee(obj) 
-  console.log(employee)
-}
 
 function handleClickk(event){
 event.preventDefault();
@@ -135,22 +120,6 @@ onChange= {handeldate}         />
 <textarea placeholder="description " onChange={handeldescription} >
 </textarea>
 <br></br>
-<br></br>
-
-<label > Select Employee:</label>
-            <br></br>
-           <select  onChange={handleSelect}>
-                <option value="">--Please choose an option--</option>
-                {employees.length ? employees.map((empl, i) => {     
-                          
-                          // Return the element. Also pass key     
-                          return ( <option value={JSON.stringify(empl)}>{empl.name}</option>) 
-                       }): <h4>null</h4>}
-                
-               
-                
-            </select>
-            <br></br>
 <br></br>
 <button onClick={handleClickk} > Submit </button> 
 

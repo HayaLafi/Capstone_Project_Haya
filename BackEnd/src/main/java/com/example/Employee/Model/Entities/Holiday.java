@@ -14,6 +14,8 @@ public class Holiday {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int holidayId;
     private String date;
+    private String starting_date ;
+    private String ending_date ;
     private String title;
     private String description;
 
@@ -23,12 +25,14 @@ public class Holiday {
     @JoinColumn(name= "employee_id" ,referencedColumnName = "id")
     private Employee employee;
 
-    public Holiday(int holidayId, String date, String title, String description, Employee employee) {
+    public Holiday(int holidayId, String date, String title, String description, String starting_date , String ending_date,  Employee employee) {
         this.holidayId = holidayId;
         this.date = date;
         this.title = title;
         this.description = description;
         this.employee = employee;
+        this.starting_date = starting_date ;
+        this.ending_date= ending_date ;
     }
 
     public Holiday() {
@@ -72,5 +76,20 @@ public class Holiday {
 
     public void setEmployee(Employee employee) {
         this.employee = employee;
+    }
+    public String getStarting_date() {
+        return starting_date;
+    }
+
+    public void setStarting_date(String starting_date) {
+        this.starting_date = starting_date;
+    }
+
+    public String getEnding_date() {
+        return ending_date;
+    }
+
+    public void setEnding_date(String ending_date) {
+        this.ending_date = ending_date;
     }
 }

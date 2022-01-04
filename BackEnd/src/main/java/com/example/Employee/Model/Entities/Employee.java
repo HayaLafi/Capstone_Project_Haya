@@ -22,7 +22,9 @@ public class Employee {
     @JsonIgnore
     private List<Holiday> items = new ArrayList<>();
 
-
+    @OneToMany(mappedBy = "employee")
+    @JsonIgnore
+    private List<Permission> permissions = new ArrayList<>();
 
     @ManyToMany
     @JoinTable(
@@ -31,12 +33,7 @@ public class Employee {
             inverseJoinColumns = @JoinColumn(name = "services_id"))
     Set<Services> empolyeeServices;
 
-    @ManyToMany
-    @JoinTable(
-            name = "employee_permission",
-            joinColumns = @JoinColumn(name = "employee_id"),
-            inverseJoinColumns = @JoinColumn(name = "permission_id"))
-    Set<Permission> empolyeePermission;
+
 
     public Employee() {
     }
