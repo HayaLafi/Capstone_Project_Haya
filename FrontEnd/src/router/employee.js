@@ -70,7 +70,7 @@ export default function Employee() {
         
         <div>
           <hr />
-          <h1> : دخول الموظفين   </h1>
+          <h1> : تسجيل الموظفين   </h1>
           <label >  الرقم الوظيفي  </label>
           <dr />
           <input
@@ -118,7 +118,7 @@ export default function Employee() {
 
           <br></br>
           <br></br>
-          <button onClick={handleClick} > Login </button>
+          <button onClick={handleClick} > تسجيل الموظفين </button>
  
         </div>
 

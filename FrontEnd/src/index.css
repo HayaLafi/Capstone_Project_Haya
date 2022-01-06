@@ -1,13 +1,25 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: #ACCAB0;
+  background:#e1efbb url("https://secure.img1-fg.wfcdn.com/im/46003108/resize-h210-w210%5Ecompr-r85/2889/28897726/Solid+Color+Sallah+33%27+x+20.5%22+Textured+Wallpaper+Roll.jpg");
+  color: rgb(255, 255, 255);
+  padding: 40px;
+  font-family: Arial;
+  text-align: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.button
+{
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  display: inline-block;
+    font-size: 12px;
+    padding: 1em 2em;
+    margin-top: 0px;
+   margin-bottom: 13px;
+     background-color:#61645f75;
+    border-radius: 40px;
+   border: none;
+   cursor: pointer;
+     position: relative;
+    box-shadow: 0 2px 25px #ffffffb7;
+
 }

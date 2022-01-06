@@ -24,14 +24,13 @@ public class Employee {
 
     @OneToMany(mappedBy = "employee")
     @JsonIgnore
+    private List<Complain> complains = new ArrayList<>();
+
+    @OneToMany(mappedBy = "employee")
+    @JsonIgnore
     private List<Permission> permissions = new ArrayList<>();
 
-    @ManyToMany
-    @JoinTable(
-            name = "employee_services",
-            joinColumns = @JoinColumn(name = "employee_id"),
-            inverseJoinColumns = @JoinColumn(name = "services_id"))
-    Set<Services> empolyeeServices;
+
 
 
 
@@ -47,13 +46,6 @@ public class Employee {
     }
 
 
-    public void setEmpolyeeServices(Set<Services> empolyeeServices) {
-        this.empolyeeServices = empolyeeServices;
-    }
-
-    public Set<Services> getEmpolyeeServices() {
-        return empolyeeServices;
-    }
 
     public int getId() {
         return id;
@@ -101,6 +93,22 @@ public class Employee {
 
     public void setItems(List<Holiday> items) {
         this.items = items;
+    }
+
+    public List<Complain> getComplains() {
+        return complains;
+    }
+
+    public void setComplains(List<Complain> complains) {
+        this.complains = complains;
+    }
+
+    public List<Permission> getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(List<Permission> permissions) {
+        this.permissions = permissions;
     }
 
     @Override

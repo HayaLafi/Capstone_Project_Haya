@@ -1,22 +1,26 @@
-import React, { useEffect, useState } from 'react'
+import React,{ useEffect,useState} from'react'
 import axios from "axios"
+  export default function Holidays() {
 
-import { Outlet} from "react-router-dom";
-export default function Holidays() {
-  
-  const[HolidayId ,setHolidayId]= useState("")
-  const[date ,setdate]= useState("")
+
+const[HolidayId, setHolidayId] =useState("")
+const [date ,setdate] =useState("")
+const [startingdate , setstartingdate] = useState("")
+  const[endingdate ,setendingdate]= useState("")
   const[tittle,settittle]= useState("")
   const[description ,setdescription]= useState("")
-  
-
+  const [employees, setEmployees] = useState("")
+  const [employee, setEmployee] = useState("")
 
   const [myHoliday, setMyHoliday] = useState({HolidayId:"",date:"",tittle:"" ,description:""})
   let nuwHoliday = {
       HolidayId:HolidayId ,
     date :date ,
+    ending_date:endingdate,
+    starting_date:startingdate,
 title:tittle,
-description :description
+description :description,
+employee : employee,
   }
   function handelid(event){
     setHolidayId((event.target.value));
@@ -25,23 +29,43 @@ description :description
   function handeldate(event){
     setdate((event.target.value));
 }
-function handeltittle(event){
-  settittle((event.target.value));
+
+function handelstartingdate(event){
+  setstartingdate((event.target.value));
+}
+function handelendingdate(event){
+  setendingdate((event.target.value));
+}
+function handleSelectType(event){
+  settittle(event.target.value);
 }
 function handeldescription(event){
   setdescription((event.target.value));
 }
 
+ useEffect(() => {
+   axios.get("api/employee")
+       .then(response => {
+          console.log(response.data)
+           setEmployees(Array.from(response.data))
+       })
+   return () => { }
+ }, [])
 
+// useEffect(()=>{
+//  axios.get("api/holiday")
+//   .then(response=>{
+//     console.log(response.data)
+//     setMyHoliday(response.data)
+//  })
+//  return()=>{}
+// },[])
 
-useEffect(()=>{
- axios.get("api/holiday")
-  .then(response=>{
-    console.log(response.data)
-    setMyHoliday(response.data[0])
- })
- return()=>{}
-},[])
+function handleSelect(event){
+  let obj = JSON.parse(event.target.value); 
+  setEmployee(obj) 
+  console.log(employee)
+}
 
 function handleClickk(event){
 event.preventDefault();
@@ -52,6 +76,12 @@ axios({
 });
 }
 
+function deleteHoliday(event , id) {
+  event.preventDefault();
+
+  axios.delete(`/api/holiday/delete/${id}`)
+    
+}
 // function handle1(){
 // axios({
 //   method: 'delete',
@@ -77,12 +107,13 @@ onChange= {handelid}         />
 <br></br>
 <label >    نوع الاجازة  </label> 
  <dr /> 
-<input
-type="text"
-          
-placeholder="name"
-name="name"
-onChange= {handeltittle}         />
+ <select  onChange={handleSelectType}>
+                <option value="">الرجاء تحديد خيار</option>
+                <option value="وفاة">وفاة</option>
+                <option value="زواج">زواج </option>
+                <option value="مرضية">مرضية </option>
+                <option value="سنوية">سنوية</option>
+            </select>
 <br></br>
 <br></br>
        {/* // <input type="radio" onChange={handleCategory} name="مرضيه" />  مرضيه  <br />
@@ -91,14 +122,23 @@ onChange= {handeltittle}         />
        {/* // <input type="radio" onChange={handleCategory} name="سنويه" /> سنويه */}
         
 
+       {/* <label > عدد أيام الأجازة </label> */}
+{/* <dr /> */}
+{/* <input */}
+{/* type="text" */}
+{/* placeholder="Date" */}
+{/* name="date" */}
+{/* onChange= {handeldate}         /> */}
 
+<br></br> 
+<br></br>
 <label > تاريخ بداية الاجازة </label>
 <dr />
 <input
 type="text"
 placeholder="Date"
-name="date"
-onChange= {handeldate}         />
+name="sdate"
+onChange= {handelstartingdate}         />
 
 <br></br>
 <br></br>
@@ -107,8 +147,8 @@ onChange= {handeldate}         />
 <input
 type="text"
 placeholder="Date"
-name="date"
-onChange= {handeldate}         />
+name="edate"
+onChange= {handelendingdate}         />
 <br></br>
 <br></br>
 
@@ -121,35 +161,70 @@ onChange= {handeldate}         />
 </textarea>
 <br></br>
 <br></br>
+
+<label > حدد الموظف</label>
+            <br></br>
+           <select  onChange={handleSelect}>
+                <option value=""> --Please choose an option--  </option>
+                {employees.length ? employees.map((empl, i) => {     
+                          
+                          // Return the element. Also pass key     
+                          return ( <option value={JSON.stringify(empl)}>{empl.name}</option>) 
+                       }): <h4>null</h4>}
+                
+               
+                
+            </select>
+            <br></br>
+<br></br>
 <button onClick={handleClickk} > Submit </button> 
 
 
 {"                                                                                                                                                           "}
 
-
-
-
 </div>
 </form>
 
-{/* <h2>my employee details are:  {JSON.stringify(myEmployee)}</h2>
-<button onClick={handleClick}>Post</button>
-<button onClick={handle1}>delete</button> */}
-  
 
 <br/>
+<form className='Patient' >
+<hr></hr>
+<h1>      قائمة  الاجازات           </h1>
+<table style={{border:"1px  solid black"}}>
+<tr>
+  <td  style={{border:"1px  solid black"}} >أسم الموظف </td>
+  <td  style={{border:"1px  solid black"}} >نوع الأجازة </td>
+  <td  style={{border:"1px  solid black"}} >مدة الأجازة </td>
+  <td  style={{border:"1px  solid black"}} >  بداية الأجازة </td>
+  <td  style={{border:"1px  solid black"}} >  نهاية الأجازة </td>
+  <td  style={{border:"1px  solid black"}} >  فسخ الأجازة </td>
+</tr>
+{myHoliday.length ? myHoliday.map((holiday, i) => {     
+                          
+                          // Return the element. Also pass key     
+                          return ( 
+                          
+                            <tr>
+                            <td  style={{border:"1px  solid black"}} >{holiday.employee.name} </td>
+                            <td  style={{border:"1px  solid black"}} >{holiday.title}</td>
+                            <td  style={{border:"1px  solid black"}} >{holiday.date}</td>
+                            <td  style={{border:"1px  solid black"}} >  {holiday.starting_date} </td>
+                            <td  style={{border:"1px  solid black"}} >  {holiday.ending_date} </td>
+                            <td  style={{border:"1px  solid black"}} >   <button onClick={(event) => deleteHoliday(event,holiday.holidayId)}>Delete</button></td>
+                          </tr>
+                          
+                          ) 
+                       }): <h4>null</h4>}
+
+</table>
+</form>
+
 </div>
+
+
+
+
+
 )
-  // return (
-  //   <div style={{ display: "flex" }}>
-  //     <nav
-  //       style={{
-  //         borderRight: "solid 1px",
-  //         padding: "1rem"
-  //       }}
-  //     >
-  //     </nav>
-  //     <Outlet />
-  //   </div>
-  // );
+ 
 }

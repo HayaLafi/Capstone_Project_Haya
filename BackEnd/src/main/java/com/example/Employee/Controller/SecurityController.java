@@ -13,8 +13,6 @@ import java.util.Optional;
 @RestController
 @RequestMapping(path = "api/security")
 public class SecurityController {
-
-
     private SecurityService securityService ;
     @Autowired
     public SecurityController (SecurityService securityService){ this.securityService = securityService ;}

@@ -19,12 +19,17 @@ function App() {
       
        
        
-    <Link to="/homepage">الصفحة الرئيسية  </Link>  |{"    "}
-        <Link to="/Employee">الموظفين  </Link>  |{"      "}
-        <Link to="/Holidays">الاجازات</Link>  |{"    "}
-        <Link to="/files">      نموذج الاجازات    </Link> |{"    "}
-        <Link to="/permissions">الاستئذانات </Link> |{"    "}
-        <Link to="/services">خدمات الموظفين  </Link>  |{"    "}
+    <Link to="/homepage">  <button class="button">الصفحة الرئيسية  </button> </Link>  {"    "}
+
+
+
+    <Link to="/login"> <button class="button"> تسجيل الدخول  </button> </Link>  {"    "}
+        <Link to="/Employee"> <button class="button"> تسجيل الموظفين </button> </Link>  {"      "}
+        <Link to="/Employees">  <button class="button">   عرض الموظفين   </button> </Link>  {"    "}
+        <Link to="/Holidays"> <button class="button">  الاجازات  </button>    </Link>  {"    "}
+        <Link to="/files">   <button class="button">   نموذج الاجازات   </button>  </Link> {"    "}
+        <Link to="/permissions"> <button class="button">الاستئذانات      </button></Link> {"    "}
+        <Link to="/services"> <button class="button"> شكاوى الموظفين </button> </Link>  {"    "}
       </nav>
       <Outlet />
     </div>

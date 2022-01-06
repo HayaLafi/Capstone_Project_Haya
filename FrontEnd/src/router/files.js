@@ -30,9 +30,13 @@ export default class Files extends Component {
             {this.state.holy.map((item => (
                 <div key={item.holidayId}>
                  <h2>{item.date}</h2>
+        
                     <h2>{item.title}</h2>
                     <p>{item.description}</p>
-                    <img src={item.description} />
+
+
+                    
+                    {/* <img src={item.description} /> */}
                     {/* <p>{item.date}</p>
                     <p>{item.title}</p>
                     <p>{item.description}</p>
