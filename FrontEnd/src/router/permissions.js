@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios"
 
+
+
+
 export default function Permissions() {
   const[permissionId ,setPermissionId]= useState("")
   const[date ,setdate]= useState("")
@@ -63,14 +66,14 @@ function handleAddPermission(event){
     axios.delete(`/api/permission/delete/${id}`)
   }  
 
-// useEffect(()=>{
- // axios.get("api/permission")
-   //.then(response=>{
-  //   console.log(response.data)
-    // setpermissions(response.data)
-  //})
- // return()=>{}
- //},[])
+useEffect(()=>{
+  axios.get("api/permission")
+   .then(response=>{
+     console.log(response.data)
+     setpermissions(response.data)
+  })
+  return()=>{}
+ },[])
 
 
 useEffect(() => {
@@ -98,12 +101,12 @@ useEffect(() => {
         <label >    نوع الإستئذان  </label> 
         <dr /> 
         <select  onChange={handleSelectType}>
-<option value="">الرجاء تحديد خيار</option>
-<option value="إنصراف مبكر">إنصراف مبكر</option>
-<option value="تأخر في الحضور">تأخر في الحضور </option>
-<option value="الخروج و العودة أثناء العمل">الخروج و العودة أثناء العمل </option>
-<option value="أخرى">أخرى</option>
-</select>
+                        <option value="">الرجاء تحديد خيار</option>
+                        <option value="إنصراف مبكر">إنصراف مبكر</option>
+                        <option value="تأخر في الحضور">تأخر في الحضور </option>
+                        <option value="الخروج و العودة أثناء العمل">الخروج و العودة أثناء العمل </option>
+                        <option value="أخرى">أخرى</option>
+                    </select>
 <br></br>
 <br></br>
 <label > تاريخ الإستئذان </label>
@@ -138,7 +141,7 @@ onChange= {handleendinghour}         />
 <br></br>
 <br></br>
 
-<label > اسباب الاجازة  </label>
+<label > اسباب الإستئذان  </label>
 <dr />
 
 <br></br>
@@ -170,135 +173,38 @@ onChange= {handleendinghour}         />
 <br></br>
 <br></br>
 <hr></hr>
-      
-<h1>      قائمة  الاجازات           </h1>
+
+{/* <h1>      قائمة  الإستئذان           </h1>
 <table style={{border:"1px  solid black"}}>
 <tr>
   <td  style={{border:"1px  solid black"}} >أسم الموظف </td>
-  <td  style={{border:"1px  solid black"}} >نوع الأجازة </td>
-  <td  style={{border:"1px  solid black"}} >مدة الأجازة </td>
-  <td  style={{border:"1px  solid black"}} >  بداية الأجازة </td>
-  <td  style={{border:"1px  solid black"}} >  نهاية الأجازة </td>
-  <td  style={{border:"1px  solid black"}} >  فسخ الأجازة </td>
+  <td  style={{border:"1px  solid black"}} >نوع الإستئذان </td>
+  <td  style={{border:"1px  solid black"}} >مدة الإستئذان </td>
+  <td  style={{border:"1px  solid black"}} >  بداية الإستئذان </td>
+  <td  style={{border:"1px  solid black"}} >  نهاية الإستئذان </td>
+  <td  style={{border:"1px  solid black"}} >  فسخ الإستئذان </td>
 </tr>
 {permissions.length ? permissions.map((permission, i) => {     
                           
-// Return the element. Also pass key 
-return ( 
+                          // Return the element. Also pass key     
+                          return ( 
                           
-<tr>
-<td  style={{border:"1px  solid black"}} >{permission.employee.name} </td>
-<td  style={{border:"1px  solid black"}} >{permission.title}</td>
-<td  style={{border:"1px  solid black"}} >{permission.date}</td>
-<td  style={{border:"1px  solid black"}} >  {permission.starting_hour} </td>
-<td  style={{border:"1px  solid black"}} >  {permission.ending_hour} </td>
-<td  style={{border:"1px  solid black"}} >   <button onClick={(event) => deletePermission(event,permission.permissionId)}>Delete</button></td>
-</tr>
+                            <tr>
+                            <td  style={{border:"1px  solid black"}} >{permission.employee.name} </td>
+                            <td  style={{border:"1px  solid black"}} >{permission.title}</td>
+                            <td  style={{border:"1px  solid black"}} >{permission.date}</td>
+                            <td  style={{border:"1px  solid black"}} >  {permission.starting_hour} </td>
+                            <td  style={{border:"1px  solid black"}} >  {permission.ending_hour} </td>
+                            <td  style={{border:"1px  solid black"}} >   <button onClick={(event) => deletePermission(event,permission.permissionId)}>Delete</button></td>
+                          </tr>
                           
-) 
-}): <h4>null</h4>}
+                          ) 
+                       }): <h4>null</h4>}
 
 </table>
-
+ */}
 
       </div>
 
     );
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

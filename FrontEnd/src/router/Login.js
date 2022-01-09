@@ -18,11 +18,15 @@ export default function Login() {
         e.preventDefault();
         console.log({ email, password });
         //Send Api request to validate data and get token
+        console.log({ email, password });
+        //Send Api request to validate data and get token
         axios({
-            method: 'post',
-            url: 'api/security/login',
-            data: employee
-        }).then((response)=> alert(response.data));
+            method: "get",
+            url: 'api/employee/login',
+            params: { email: email , password: password}
+        }).then((response)=> {alert(response.data)
+           
+        });
         
     }
     return (

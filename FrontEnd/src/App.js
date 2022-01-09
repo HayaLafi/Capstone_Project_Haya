@@ -18,18 +18,14 @@ function App() {
       <h1>  ادارة شؤون الموظفين  </h1>
       
        
-       
-    <Link to="/homepage">  <button class="button">الصفحة الرئيسية  </button> </Link>  {"    "}
-
-
-
-    <Link to="/login"> <button class="button"> تسجيل الدخول  </button> </Link>  {"    "}
-        <Link to="/Employee"> <button class="button"> تسجيل الموظفين </button> </Link>  {"      "}
-        <Link to="/Employees">  <button class="button">   عرض الموظفين   </button> </Link>  {"    "}
-        <Link to="/Holidays"> <button class="button">  الاجازات  </button>    </Link>  {"    "}
-        <Link to="/files">   <button class="button">   نموذج الاجازات   </button>  </Link> {"    "}
-        <Link to="/permissions"> <button class="button">الاستئذانات      </button></Link> {"    "}
-        <Link to="/services"> <button class="button"> شكاوى الموظفين </button> </Link>  {"    "}
+    <Link to="/homepage">   <button class="button">     الصفحة الرئيسية    </button> </Link>  {"    "}
+    <Link to="/login">   <button class="button">      تسجيل دخول        </button> </Link>  {"    "}
+        <Link to="/Employee">  <button class="button">      الموظفين     </button> </Link>  {"      "}
+        <Link to="/Employees"> <button class="button">       نموذج الموظفين    </button> </Link>  {"      "}
+        <Link to="/Holidays">  <button class="button">      الاجازات  </button>        </Link>    {"    "}
+        <Link to="/files">   <button class="button">    نموذج الاجازات   </button>      </Link> {"    "}
+        <Link to="/permissions">  <button class="button">  الاستئذانات     </button>         </Link> {"    "}
+        <Link to="/complains"> <button class="button">      شكاوى الموظفين   </button>          </Link>  {"    "}
       </nav>
       <Outlet />
     </div>

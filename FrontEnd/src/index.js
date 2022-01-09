@@ -9,7 +9,6 @@ import Homepage from "./router/Homepage";
 
 import Employee from "./router/employee";
 import Employees from "./router/employees";
-
  import Holidays from "./router/Holidays";
  import Holiday from "./router/Holiday";
 
@@ -23,7 +22,8 @@ import Employees from "./router/employees";
  import Files from './router/files';
   import Login from './router/Login';
 import "./index.css";
-
+import Complains from './router/complains'
+import Complain from './router/complain'
 
 
 ReactDOM.render(
@@ -37,12 +37,11 @@ ReactDOM.render(
          </Route>
          <Route path="/employees" element={<Employees />}>
          </Route>
-
          <Route path="/login" element={<Login />}>
          </Route>
-           <Route path="/" element={<App />}> 
-         <Route path="/homepage" element={<homepage />}> 
-         </Route>
+          
+        <Route path="/homepage" element={<Homepage />}>
+         
          </Route>  
 
 
@@ -51,6 +50,9 @@ ReactDOM.render(
         </Route> */}
 
         <Route path="/permissions" element={<Permissions />}/>
+        <Route path="/permission" element={<Permission />}/>
+        <Route path="/complains" element={<Complains />}/>
+        <Route path="/complain" element={<Complain />}/>
           {/* <Route path=":id" element={<Permission />} />
           </Route> */}
 

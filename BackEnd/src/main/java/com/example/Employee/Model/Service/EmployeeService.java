@@ -35,4 +35,16 @@ public class EmployeeService {
         //boolean exist = employeeRepository.existsById(employeeId);
         // put a condition on 'exist'. if exist then delete
     }
+    public String getCheck(String email ,String password) {
+        if( employeeRepository.existsByEmail(email) ){
+            String pass = employeeRepository.findPasswordByEmail(email);
+            if (pass.equals(password)){
+                return "authenticated" ;
+            }
+            else {
+                return "Password does not match"; }
+        }
+
+        return "Username not found";
+    }
 }

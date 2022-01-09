@@ -1,32 +1,33 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from 'react'
 import axios from "axios"
-export default class MyTry extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            employeList: [],
-        };
-    }
-    componentDidMount() {
-        axios.get("api/employee").then(response => {
-            const employeList = response.data
-            this.setState({ employeList });
-        });
-    } 
-    deleteUseGarden(id) {
-       // console.log("Delete after Entering")
-        axios.delete(`api/employee/delete/${id}`)
-            .then(response => {
-                const employeList = this.state.employeList.filter(item => item.id !== id);
-                this.setState({ employeList })
-            })
-    }
-render() {
-    return (
+export default function Employees() { 
+    const [myEmployee, setMyEmployee] = useState("") ; 
+
+     
+  function deleteEmployee(event , id) {
+    event.preventDefault();
+  
+    axios.delete(`/api/employee/delete/${id}`)
+  }  
+    useEffect(() => {
+        axios.get("api/employee")
+          .then(response => {
+            console.log(response.data)
+            setMyEmployee(response.data)
+          })
+         return () => { }
+       }, [])
+
+       return (
+        <div>
+   
         <div >
             <div >
                <p></p>
-                    {this.state.employeList.map((item => (
+               {myEmployee.length ? myEmployee.map((item, i) => {     
+                            
+                            // Return the element. Also pass key     
+                            return ( 
                         <tr key={item.id}>
                        <div >
                         <div ></div>
@@ -49,12 +50,47 @@ render() {
                        <div >
 </div>
 </div>
-                 <td><button   onClick={(e) => this.deleteUseGarden(item.id, e)}>delete</button></td>
+                 <td><button   onClick={(e) => deleteEmployee(e,item.id)}>delete</button></td>
                         </tr>
-                    )))
-                    }
+                    )}): <h4></h4>}
+                    
         </div>
         </div>
-  )
-}
+
+  
+ {/*  <h1>     قائمة الموظفين          </h1>
+  <table style={{border:"1px  solid black"}}>
+  <tr>
+  <td  style={{border:"1px  solid black"}} >  معرف الموظف </td>
+    <td  style={{border:"1px  solid black"}} >أسم الموظف </td>
+    <td  style={{border:"1px  solid black"}} >ايميل الموظف </td>
+    <td  style={{border:"1px  solid black"}} >رقم الموظف</td>
+    <td  style={{border:"1px  solid black"}} >  صورة الموظف </td>
+    <td  style={{border:"1px  solid black"}} >  فسخ الإستئذان </td>
+  </tr>
+  {myEmployee.length ? myEmployee.map((employee, i) => {     
+                            
+                            // Return the element. Also pass key     
+                            return ( 
+                            
+                              <tr>
+                              <td  style={{border:"1px  solid black"}} >{employee.id} </td>
+                              <td  style={{border:"1px  solid black"}} >{employee.name}</td>
+                              <td  style={{border:"1px  solid black"}} >{employee.email}</td>
+                              <td  style={{border:"1px  solid black"}} >  {employee.mobile} </td>
+                              <td  style={{border:"1px  solid black"}} >  <img src={employee.photo} width="150" height="200"/> </td>
+                              <td  style={{border:"1px  solid black"}} >   <button onClick={(event) => deleteEmployee(event,employee.id)}>Delete</button></td>
+                            </tr>
+                            
+                            ) 
+                         }): <h4>null</h4>}
+  
+  </table>
+   */}
+  
+        </div>
+  
+      );
+
+
 }

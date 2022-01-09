@@ -16,6 +16,7 @@ public class Employee {
     private String email;
     private int mobile;
     private String password;
+    private String photo;
 
 
     @OneToMany(mappedBy = "employee")
@@ -31,21 +32,17 @@ public class Employee {
     private List<Permission> permissions = new ArrayList<>();
 
 
-
-
-
-    public Employee() {
-    }
-
-    public Employee(int id, String name, String email, int mobile, String password) {
+    public Employee(int id, String name, String email, int mobile, String password, String photo) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.mobile = mobile;
         this.password = password;
+        this.photo = photo;
     }
 
-
+    public Employee() {
+    }
 
     public int getId() {
         return id;
@@ -109,6 +106,15 @@ public class Employee {
 
     public void setPermissions(List<Permission> permissions) {
         this.permissions = permissions;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
     @Override

@@ -7,6 +7,8 @@ body {
   text-align: center;
 }
 
+
+
 .button
 {
   font-family: 'Helvetica', 'Arial', sans-serif;
@@ -15,11 +17,11 @@ body {
     padding: 1em 2em;
     margin-top: 0px;
    margin-bottom: 13px;
-     background-color:#61645f75;
+     background-color:#71746f75;
     border-radius: 40px;
    border: none;
    cursor: pointer;
      position: relative;
     box-shadow: 0 2px 25px #ffffffb7;
-
 }
+

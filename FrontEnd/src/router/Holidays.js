@@ -1,11 +1,11 @@
-import React,{ useEffect,useState} from'react'
+import React, { useEffect, useState } from 'react'
 import axios from "axios"
-  export default function Holidays() {
 
-
-const[HolidayId, setHolidayId] =useState("")
-const [date ,setdate] =useState("")
-const [startingdate , setstartingdate] = useState("")
+export default function Holidays() {
+  
+  const[HolidayId ,setHolidayId]= useState("")
+  const[date ,setdate]= useState("")
+  const[startingdate ,setstartingdate]= useState("")
   const[endingdate ,setendingdate]= useState("")
   const[tittle,settittle]= useState("")
   const[description ,setdescription]= useState("")
@@ -43,23 +43,23 @@ function handeldescription(event){
   setdescription((event.target.value));
 }
 
- useEffect(() => {
-   axios.get("api/employee")
-       .then(response => {
+useEffect(() => {
+  axios.get("api/employee")
+      .then(response => {
           console.log(response.data)
-           setEmployees(Array.from(response.data))
-       })
-   return () => { }
- }, [])
+          setEmployees(Array.from(response.data))
+      })
+  return () => { }
+}, [])
 
-// useEffect(()=>{
-//  axios.get("api/holiday")
-//   .then(response=>{
-//     console.log(response.data)
-//     setMyHoliday(response.data)
-//  })
-//  return()=>{}
-// },[])
+useEffect(()=>{
+ axios.get("api/holiday")
+  .then(response=>{
+    console.log(response.data)
+    setMyHoliday(response.data)
+ })
+ return()=>{}
+},[])
 
 function handleSelect(event){
   let obj = JSON.parse(event.target.value); 
@@ -122,15 +122,15 @@ onChange= {handelid}         />
        {/* // <input type="radio" onChange={handleCategory} name="سنويه" /> سنويه */}
         
 
-       {/* <label > عدد أيام الأجازة </label> */}
-{/* <dr /> */}
-{/* <input */}
-{/* type="text" */}
-{/* placeholder="Date" */}
-{/* name="date" */}
-{/* onChange= {handeldate}         /> */}
+       <label > عدد أيام الأجازة </label>
+<dr />
+<input
+type="text"
+placeholder="Date"
+name="date"
+onChange= {handeldate}         />
 
-<br></br> 
+<br></br>
 <br></br>
 <label > تاريخ بداية الاجازة </label>
 <dr />
@@ -165,7 +165,7 @@ onChange= {handelendingdate}         />
 <label > حدد الموظف</label>
             <br></br>
            <select  onChange={handleSelect}>
-                <option value=""> --Please choose an option--  </option>
+                <option value="">--Please choose an option--</option>
                 {employees.length ? employees.map((empl, i) => {     
                           
                           // Return the element. Also pass key     

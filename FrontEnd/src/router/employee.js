@@ -7,7 +7,7 @@ export default function Employee() {
   const [email, setemail] = useState("")
   const [mobile, setmobile] = useState("")
   const [password, setpassword] = useState("")
-
+  const [selectedFile, setSelectedFile] = useState("")
 
   const [myEmployee, setMyEmployee] = useState({ id: "", name: "", email: "", mobile: "", password: "" })
 
@@ -27,7 +27,9 @@ export default function Employee() {
   function handelpassword(event) {
     setpassword((event.target.value));
   }
-
+  function onFileChange(event) {
+    setSelectedFile(event.target.files[0]); 
+  }
 
 
   let nuwEmployee = {
@@ -48,12 +50,33 @@ export default function Employee() {
      return () => { }
    }, [])
 
-  function handleClick() {
-    axios({
+  function handleClick(event) {
+    /* axios({
       method: 'post',
       url: 'api/employee/add',
       data: nuwEmployee
-    });
+    }); */
+
+    
+      const formData = new FormData();
+          formData.append(
+            "file",
+            selectedFile
+            
+          );
+    
+          formData.append(
+              "employeeStr",  JSON.stringify(nuwEmployee) 
+          )
+      event.preventDefault();
+      console.log("add func")
+     axios({
+       method:'post',
+       url:'api/employee/New',
+       data:formData
+     });
+    
+    
   }
 
   //  function handleClick(){
@@ -117,6 +140,10 @@ export default function Employee() {
             onChange={handelpassword} />
 
           <br></br>
+          
+            <label > Choose photo:</label>
+            <input type="file" onChange={onFileChange} />
+            <br></br>
           <br></br>
           <button onClick={handleClick} > تسجيل الموظفين </button>
  
