@@ -37,7 +37,7 @@ export default function Login() {
             <div class="container">
                 <div class="card"></div>
                 <div class="card">
-                    <h1 class="title">تسجيل</h1>
+                    <h1 class="title"></h1>
                     <form>
                         <div class="input-container">
                             <label for="#{label}">ايميل: </label>
@@ -45,15 +45,22 @@ export default function Login() {
                             
                             <div class="bar"></div>
                         </div>
+                        <br></br>
                         <div class="input-container">
                             <label for="#{label}">كلمة السر:</label>
                             <input type="password" id="#{label}" required="required" onChange={e => setPassword(e.target.value)}/>
                             
                             <div class="bar"></div>
                         </div>
+                        <br></br>
+
+
                         <div class="button-container">
                             <button onClick={login}><span>تسجيل</span></button>
                         </div>
+
+                        <br></br>
+                      
                         <div class="footer"><a href="#">نسيت كلمة المرور?</a></div>
                     </form>
                 </div>

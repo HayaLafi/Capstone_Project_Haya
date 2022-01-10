@@ -137,11 +137,13 @@ export default function Employee() {
             type="text"
             placeholder="Id"
             name="password"
-            onChange={handelpassword} />
+            onChange={handelpassword}
+           />
 
           <br></br>
-          
-            <label > Choose photo:</label>
+         <br></br> 
+
+            <label >  ارفاق صورة   </label>
             <input type="file" onChange={onFileChange} />
             <br></br>
           <br></br>

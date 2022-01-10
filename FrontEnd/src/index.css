@@ -17,11 +17,17 @@ body {
     padding: 1em 2em;
     margin-top: 0px;
    margin-bottom: 13px;
-     background-color:#71746f75;
+     background-color:#f3c81da4;
     border-radius: 40px;
    border: none;
    cursor: pointer;
      position: relative;
     box-shadow: 0 2px 25px #ffffffb7;
 }
+.logo{
 
+  width: 700px;
+}
+.h1{
+  
+}

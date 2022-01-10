@@ -12,7 +12,7 @@ export default class Files extends Component {
             .get("api/holiday")
             .then(result => {
                 const holy = result.data
-                this.setState({ holy })
+      this.setState({ holy })
             });
     }
     deleteHoliday(holidayId) {
@@ -23,6 +23,7 @@ export default class Files extends Component {
                 this.setState({ holy })
             })
     }
+    
     render() {
         return (
         <div>
