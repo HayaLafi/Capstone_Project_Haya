@@ -7,7 +7,7 @@ import axios from "axios"
 export default function Login() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-   /*  const authContext = useContext(AuthContext) */
+ 
     function login(e) {
         let employee = {
             email: email,
@@ -35,9 +35,9 @@ export default function Login() {
                 <h1>تسجيل دخول الموظفين</h1>
             </div>
             <div class="container">
-                <div class="card"></div>
-                <div class="card">
-                    <h1 class="title"></h1>
+    <div class="card"></div>
+   <div class="card">
+  <h1 class="title"></h1>
                     <form>
                         <div class="input-container">
                             <label for="#{label}">ايميل: </label>

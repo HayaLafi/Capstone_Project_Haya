@@ -87,7 +87,9 @@ useEffect(() => {
     return (
       <div>
       <h1>الاستئذانات</h1>
-
+      <div className="row container">
+    <div className="col-md-6" style={{border:"1px  solid black"}}>
+    <h2> : تعمير الاستمارة   </h2>
       <br></br>
       <label > رقم الإستئذان  </label>
         <dr />
@@ -166,7 +168,14 @@ onChange= {handleendinghour}         />
             <br></br>
 <br></br>
 <button onClick={handleAddPermission} > Submit </button> 
+</div>
+<div className="col-md-6">
+              <img src="http://localhost:8080\uploads\permission.jfif" width="500" height="500" ></img>
+    </div> 
 
+
+
+</div>
 <br></br>
 <br></br>
 <br></br>

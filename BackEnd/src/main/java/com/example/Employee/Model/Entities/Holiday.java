@@ -26,7 +26,7 @@ public class Holiday {
     @JoinColumn(name= "employee_id" ,referencedColumnName = "id")
     private Employee employee;
 
-    public Holiday(int holidayId, String date, String title, String description, String starting_date , String ending_date, String photo ,  Employee employee) {
+    public Holiday(int holidayId, String date, String title, String description, String starting_date , String photo , String ending_date,  Employee employee) {
         this.holidayId = holidayId;
         this.date = date;
         this.title = title;
@@ -39,6 +39,7 @@ public class Holiday {
 
     public Holiday() {
     }
+
 
     public int getHolidayId() {
         return holidayId;
@@ -72,6 +73,14 @@ public class Holiday {
         this.description = description;
     }
 
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
     public Employee getEmployee() {
         return employee;
     }
@@ -93,13 +102,5 @@ public class Holiday {
 
     public void setEnding_date(String ending_date) {
         this.ending_date = ending_date;
-    }
-
-    public String getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(String photo) {
-        this.photo = photo;
     }
 }

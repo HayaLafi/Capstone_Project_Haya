@@ -89,11 +89,14 @@ export default function Employee() {
    
 
 <div>
+<h1> : تسجيل الموظفين   </h1>
+<div className="row container">
+    <div className="col-md-6" style={{border:"1px  solid black"}}>
       <form >
         
         <div>
           <hr />
-          <h1> : تسجيل الموظفين   </h1>
+          <h2>     </h2>
           <label >  الرقم الوظيفي  </label>
           <dr />
           <input
@@ -152,6 +155,11 @@ export default function Employee() {
         </div>
 
       </form>
+      </div>
+      <div className="col-md-6">
+              <img src="http://localhost:8080\uploads\employee.jfif" width="500" height="500" ></img>
+    </div> 
+    </div>
       </div>
   )}
 
