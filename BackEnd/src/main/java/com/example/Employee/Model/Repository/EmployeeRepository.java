@@ -8,12 +8,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
-    @Query("SELECT email  FROM Employee WHERE email = :email AND password = :password ")
-    String findByEmailAngdPassword(@Param("email") String email , @Param("password") String password) ;
-
     @Query("SELECT password FROM Employee WHERE email = :email" )
     String findPasswordByEmail(@Param("email") String email);
-
     @Query("select case when count(email) > 0 then true else false end from Employee where email = :email")
     Boolean existsByEmail(@Param("email") String email);
 }

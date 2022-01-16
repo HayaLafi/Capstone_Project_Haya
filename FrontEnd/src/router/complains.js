@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios"
-
-
-
-
 export default function Complains() {
   const[id ,setId]= useState("")
   const[type ,settype]= useState("")
@@ -17,7 +13,7 @@ export default function Complains() {
           id:id ,
           type :type ,
           description :description,
-          employee : employee,
+          // employee : employee,
   }
   function handleid(event){
     setId((event.target.value));
@@ -70,11 +66,9 @@ useEffect(() => {
   return () => { }
 }, [])
     return (
-      <div>
+      <div class ="haya5">
       <h1>شكاوى الموظفين</h1>
-      <div className="row container">
-    <div className="col-md-6" style={{border:"1px  solid black"}}>
-    <h2> : تعمير الاستمارة   </h2>
+
       <br></br>
       <label > رقم الشكوى  </label>
         <dr />
@@ -102,12 +96,16 @@ useEffect(() => {
 
 <br></br>
 <br></br>
-<textarea placeholder="description " onChange={handledescription} >
+<textarea placeholder="description " onChange={handledescription}
+    style={{ width: "90%", height: "90px", marginTop: "5px" }}
+
+>
 </textarea>
 <br></br>
 <br></br>
 <label > حدد الموظف</label>
 <br></br>
+
 <select  onChange={handleSelect}>
 <option value="">--Please choose an option--</option>
 {employees.length ? employees.map((empl, i) => {     
@@ -121,17 +119,44 @@ return ( <option value={JSON.stringify(empl)}>{empl.name}</option>)
 </select>
 <br></br>
 <br></br>
-<button onClick={handleAddComplain} > Submit </button> 
+<button class="hh" onClick={handleAddComplain} > Submit </button> 
 
-</div>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<hr></hr>
 
-<div className="col-md-6">
-              <img src="http://localhost:8080\uploads\complains.jfif" width="500" height="500" ></img>
-    </div> 
+{/* <h1>      قائمة  شكاوى            </h1>
+<table style={{border:"1px  solid black"}}>
+<tr>
+  <td  style={{border:"1px  solid black"}} >أسم الموظف </td>
+  <td  style={{border:"1px  solid black"}} >نوع الشكوى </td>
+  <td  style={{border:"1px  solid black"}} >وصف الشكوى </td>
 
+  <td  style={{border:"1px  solid black"}} >  فسخ الشكوى </td>
+</tr>
+{complains.length ? complains.map((complain, i) => {     
+                          
+                          // Return the element. Also pass key     
+                          return ( 
+                          
+                            <tr>
+                            <td  style={{border:"1px  solid black"}} >{complain.employee.name} </td>
+                            <td  style={{border:"1px  solid black"}} >{complain.type}</td>
+                            <td  style={{border:"1px  solid black"}} >{complain.description}</td>
+                            
+                            <td  style={{border:"1px  solid black"}} >   <button onClick={(event) => deleteComplain(event,complain.id)}>Delete</button></td>
+                          </tr>
+                          
+                          ) 
+                       }): <h4>null</h4>}
 
+</table>
 
-</div></div>
+ */}
+      </div>
 
     );
   }

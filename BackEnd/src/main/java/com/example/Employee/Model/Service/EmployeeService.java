@@ -36,7 +36,7 @@ public class EmployeeService {
         // put a condition on 'exist'. if exist then delete
     }
     public String getCheck(String email ,String password) {
-        if( employeeRepository.existsByEmail(email) ){
+        if( employeeRepository.existsByEmail(email) == true){
             String pass = employeeRepository.findPasswordByEmail(email);
             if (pass.equals(password)){
                 return "authenticated" ;

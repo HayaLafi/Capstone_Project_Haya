@@ -88,15 +88,13 @@ export default function Employee() {
   return (
    
 
-<div>
-<h1> : تسجيل الموظفين   </h1>
-<div className="row container">
-    <div className="col-md-6" style={{border:"1px  solid black"}}>
+<div class ="haya">
+ 
       <form >
-        
+      
         <div>
           <hr />
-          <h2>     </h2>
+          <h1> تسجيل الموظفين   </h1>
           <label >  الرقم الوظيفي  </label>
           <dr />
           <input
@@ -124,7 +122,7 @@ export default function Employee() {
             onChange={handelemail} />
           <br></br>
           <br></br>
-          <label > رقم الموظف</label>
+          <label > رقم الموظف </label>
           <dr />
           <input
             type="text"
@@ -150,16 +148,12 @@ export default function Employee() {
             <input type="file" onChange={onFileChange} />
             <br></br>
           <br></br>
-          <button onClick={handleClick} > تسجيل الموظفين </button>
+          <button  class="button10" onClick={handleClick} > تسجيل الموظفين </button>
  
         </div>
-
+     
       </form>
-      </div>
-      <div className="col-md-6">
-              <img src="http://localhost:8080\uploads\employee.jfif" width="500" height="500" ></img>
-    </div> 
-    </div>
+      
       </div>
   )}
 

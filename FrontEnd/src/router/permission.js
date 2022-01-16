@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios"
+
+
+
+
 export default function Permission() {
 
 
@@ -20,6 +24,8 @@ useEffect(()=>{
   })
   return()=>{}
  },[])
+
+
 
     return (
       <div>
@@ -50,7 +56,7 @@ useEffect(()=>{
                             <td  style={{border:"1px  solid black"}} >{permission.date}</td>
                             <td  style={{border:"1px  solid black"}} >  {permission.starting_hour} </td>
                             <td  style={{border:"1px  solid black"}} >  {permission.ending_hour} </td>
-                            <td  style={{border:"1px  solid black"}} >   <button onClick={(event) => deletePermission(event,permission.permissionId)}>Delete</button></td>
+                            <td  style={{border:"1px  solid black"}} >   <button  onClick={(event) => deletePermission(event,permission.permissionId)}>Delete</button></td>
                           </tr>
                           
                           ) 

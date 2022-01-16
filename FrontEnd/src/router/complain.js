@@ -4,9 +4,10 @@ export default function Complain() {
   const [complains, setComplains] = useState("")
   function deleteComplain(event , id) {
     event.preventDefault();
-  
+   
     axios.delete(`/api/complain/delete/${id}`)
   }  
+
 
 useEffect(()=>{
   axios.get("api/complain")
@@ -19,7 +20,7 @@ useEffect(()=>{
 
 
     return (
-      <div>
+    <div>
       <h1>شكاوى الموظفين</h1>
 
       
@@ -45,7 +46,7 @@ useEffect(()=>{
                             <td  style={{border:"1px  solid black"}} >{complain.type}</td>
                             <td  style={{border:"1px  solid black"}} >{complain.description}</td>
                             
-                            <td  style={{border:"1px  solid black"}} >   <button onClick={(event) => deleteComplain(event,complain.id)}>Delete</button></td>
+                            <td  style={{border:"1px  solid black"}} >   <button class="bb" onClick={(event) => deleteComplain(event,complain.id)}>Delete</button></td>
                           </tr>
                           
                           ) 

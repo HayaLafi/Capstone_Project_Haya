@@ -26,7 +26,7 @@ export default class Files extends Component {
     
     render() {
         return (
-        <div>
+         <div class ="za">
             <h3>  </h3>
             {this.state.holy.map((item => (
                 <div key={item.holidayId}>
@@ -38,8 +38,13 @@ export default class Files extends Component {
                     <p>{item.title}</p>
                     <p>{item.description}</p>
                     <img src={item.image} width={"50px"} height={"50px"}/> */}
-                    <button onClick={(e) => this.deleteHoliday(item.holidayId, e)}>Delete</button>
-                    <p>_ _ _ _</p>
+                    <br></br>
+                    <br></br>
+
+
+                   
+                    <button class="oo" onClick={(e) => this.deleteHoliday(item.holidayId, e)}>Delete</button>
+                    {/* <p>_ _ _ _</p> */}
                 </div>
             )))}
         </div>

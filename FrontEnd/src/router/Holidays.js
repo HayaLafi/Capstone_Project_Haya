@@ -11,10 +11,10 @@ export default function Holidays() {
   const[description ,setdescription]= useState("")
   const [employees, setEmployees] = useState("")
   const [employee, setEmployee] = useState("")
-  const [selectedFile, setSelectedFile] = useState("")
+
   const [myHoliday, setMyHoliday] = useState({HolidayId:"",date:"",tittle:"" ,description:""})
   let nuwHoliday = {
-      holidayId:HolidayId ,
+      HolidayId:HolidayId ,
     date :date ,
     ending_date:endingdate,
     starting_date:startingdate,
@@ -41,9 +41,6 @@ function handleSelectType(event){
 }
 function handeldescription(event){
   setdescription((event.target.value));
-}
-function onFileChange(event) {
-  setSelectedFile(event.target.files[0]); 
 }
 
 useEffect(() => {
@@ -72,24 +69,11 @@ function handleSelect(event){
 
 function handleClickk(event){
 event.preventDefault();
-const formData = new FormData();
-          formData.append(
-            "file",
-            selectedFile
-            
-          );
-    
-          formData.append(
-              "holidayStr",  JSON.stringify(nuwHoliday) 
-          )
-      event.preventDefault();
-      
-     axios({
-       method:'post',
-       url:'api/holiday/New',
-       data:formData
-     });
-    
+axios({
+  method:'post',
+  url:'api/holiday/add',
+  data:nuwHoliday
+});
 }
 
 function deleteHoliday(event , id) {
@@ -105,14 +89,12 @@ function deleteHoliday(event , id) {
 // })}
 
 return (
-<>
-<h1>       الاجازات          </h1>
-<div className="row container">
-    <div className="col-md-6" style={{border:"1px  solid black"}}>
-      <form  >
-
+<div class ="AA">
+  
+<form className='Patient' >
+<div class="log">
 <hr />
-
+<h1>       الاجازات          </h1>
 <br></br>
 <label > عدد أيام الاجازة  </label>
 <dr />
@@ -194,24 +176,16 @@ onChange= {handelendingdate}         />
                 
             </select>
             <br></br>
-
-            <br></br> 
-
-            <label >  ارفاق صورة   </label>
-            <input type="file" onChange={onFileChange} />
 <br></br>
 <button onClick={handleClickk} > Submit </button> 
 
 
 {"                                                                                                                                                           "}
 
-
-</form>
 </div>
-<div className="col-md-6">
-              <img src="http://localhost:8080\uploads\holiday.jfif" width="500" height="500" ></img>
-        </div> 
-</div>        
+</form>
+
+
 <br/>
 <form className='Patient' >
 <hr></hr>
@@ -245,12 +219,10 @@ onChange= {handelendingdate}         />
 </table>
 </form>
 
+</div>
 
 
 
-
-
-</>
 
 
 )
