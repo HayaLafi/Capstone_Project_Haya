@@ -4,7 +4,7 @@ export default function Complains() {
   const[id ,setId]= useState("")
   const[type ,settype]= useState("")
   const[description ,setdescription]= useState("")
-  
+
   const [employees, setEmployees] = useState("")
   const [employee, setEmployee] = useState("")
 
@@ -13,8 +13,9 @@ export default function Complains() {
           id:id ,
           type :type ,
           description :description,
-          // employee : employee,
+          employee : employee,
   }
+  
   function handleid(event){
     setId((event.target.value));
   }

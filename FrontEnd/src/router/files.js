@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 export default class Files extends Component {
+ 
     constructor(props) {
+     
         super(props)
+       
         this.state = {
             holy: [],
         };
@@ -42,7 +45,7 @@ export default class Files extends Component {
                     <br></br>
 
 
-                   
+                    // nj jn kj 
                     <button class="oo" onClick={(e) => this.deleteHoliday(item.holidayId, e)}>Delete</button>
                     {/* <p>_ _ _ _</p> */}
                 </div>

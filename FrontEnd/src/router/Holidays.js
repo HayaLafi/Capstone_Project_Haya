@@ -11,10 +11,11 @@ export default function Holidays() {
   const[description ,setdescription]= useState("")
   const [employees, setEmployees] = useState("")
   const [employee, setEmployee] = useState("")
+  const [selectedFile, setSelectedFile] = useState("")
 
   const [myHoliday, setMyHoliday] = useState({HolidayId:"",date:"",tittle:"" ,description:""})
   let nuwHoliday = {
-      HolidayId:HolidayId ,
+      holidayId:HolidayId ,
     date :date ,
     ending_date:endingdate,
     starting_date:startingdate,
@@ -42,7 +43,9 @@ function handleSelectType(event){
 function handeldescription(event){
   setdescription((event.target.value));
 }
-
+function onFileChange(event) {
+  setSelectedFile(event.target.files[0]); 
+}
 useEffect(() => {
   axios.get("api/employee")
       .then(response => {
@@ -69,11 +72,24 @@ function handleSelect(event){
 
 function handleClickk(event){
 event.preventDefault();
-axios({
-  method:'post',
-  url:'api/holiday/add',
-  data:nuwHoliday
-});
+const formData = new FormData();
+          formData.append(
+            "file",
+            selectedFile
+            
+          );
+    
+          formData.append(
+              "holidayStr",  JSON.stringify(nuwHoliday) 
+          )
+      event.preventDefault();
+      
+     axios({
+       method:'post',
+       url:'api/holiday/New',
+       data:formData
+     });
+    
 }
 
 function deleteHoliday(event , id) {
@@ -176,6 +192,8 @@ onChange= {handelendingdate}         />
                 
             </select>
             <br></br>
+            <label > : ارفاق صورة   </label>
+            <input className="form-control" type="file" onChange={onFileChange} />
 <br></br>
 <button onClick={handleClickk} > Submit </button> 
 
@@ -197,7 +215,7 @@ onChange= {handelendingdate}         />
   <td  style={{border:"1px  solid black"}} >مدة الأجازة </td>
   <td  style={{border:"1px  solid black"}} >  بداية الأجازة </td>
   <td  style={{border:"1px  solid black"}} >  نهاية الأجازة </td>
-  <td  style={{border:"1px  solid black"}} >  فسخ الأجازة </td>
+  <td  style={{border:"1px  solid black"}} >  حذف  الأجازة </td>
 </tr>
 {myHoliday.length ? myHoliday.map((holiday, i) => {     
                           
